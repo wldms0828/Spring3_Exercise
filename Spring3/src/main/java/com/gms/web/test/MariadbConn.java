@@ -7,7 +7,7 @@ public class MariadbConn {
 	public String exam() {
 		Connection conn;
 		Statement stmt;
-		String s="";//
+		String s="";
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
 			conn = DriverManager .getConnection(
@@ -16,11 +16,11 @@ public class MariadbConn {
 					"mariadb");
 			stmt = conn.createStatement();
 			String sql = String.format(
-					"SELECT USERID FROM MEMBER "
+					"SELECT NAME FROM MEMBER WHERE USERID LIKE 'e1' "
 					);
 			ResultSet rs = stmt.executeQuery(sql);			
 			if(rs.next()) {
-				s=rs.getString("USERID");
+				s=rs.getString("NAME");
 			}
 			else{
 				s = "연결실패";
