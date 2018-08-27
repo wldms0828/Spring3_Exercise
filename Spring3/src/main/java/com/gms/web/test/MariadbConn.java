@@ -7,7 +7,7 @@ public class MariadbConn {
 	public String exam() {
 		Connection conn;
 		Statement stmt;
-		String s="";
+		String s="";//
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
 			conn = DriverManager .getConnection(
