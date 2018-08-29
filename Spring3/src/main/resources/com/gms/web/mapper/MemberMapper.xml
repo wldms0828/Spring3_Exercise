@@ -6,4 +6,25 @@
   <select id="selectOne" resultType="com.gms.web.domain.MemberDTO">
     SELECT * FROM MEMBER WHERE USERID LIKE #{userid}
   </select>
+  <insert id="insert">
+  	INSERT INTO MEMBER ( USERID, SSN, NAME, GENDER, AGE, ROLL, TEAMID, PASSWORD ) 
+  		VALUES (#{userid},#{ssn},#{name},#{gender},#{age},#{roll},#{teamid},#{password})
+  </insert>
+   <update  id="update" >
+   	UPDATE MEMBER
+ 	 SET PASSWORD = #{password},ROLL = #{roll},TEAMID = #{teamid}
+ 	  WHERE USERID LIKE #{userid};
+   </update> 
+   <delete  id="delete"  >
+   	DELETE FROM MEMBER WHERE USERID LIKE #{userid} 
+  	 	AND PASSWORD LIKE #{password}
+   </delete> 
+	<select  id="login" resultType="com.gms.web.domain.MemberDTO">
+		SELECT USERID FROM MEMBER WHERE USERID LIKE #{userid} 
+			AND PASSWORD LIKE #{password}
+	</select>
+	 <select id="retrieve" resultType="com.gms.web.domain.MemberDTO">
+	 SELECT USERID, TEAMID , AGE, GENDER,  NAME, ROLL, SSN	
+	 	FROM MEMBER WHERE USERID LIKE #{userid} 
+	 </select>
 </mapper>

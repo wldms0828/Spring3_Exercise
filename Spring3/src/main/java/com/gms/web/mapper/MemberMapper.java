@@ -10,32 +10,35 @@ import org.springframework.stereotype.Repository;
 
 import com.gms.web.domain.MemberDTO;
 import com.gms.web.repository.MemberDAO;
+
 @Repository
-public class MemberMapper implements MemberDAO{
-	@Autowired SqlSessionFactory factory;
-	private static final String ns = 
-			"com.gms.web.mapper.MemberMapper";
+public class MemberMapper implements MemberDAO {
+	@Autowired
+	SqlSessionFactory factory;
+	private static final String ns = "com.gms.web.mapper.MemberMapper";
 
 	@Override
 	public void insert(MemberDTO p) {
+		SqlSession sqlSession = factory.openSession();
+		sqlSession.insert(ns + ".insert", p);
 	}
 
 	@Override
 	public List<?> selectList(Map<?, ?> p) {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 
 	@Override
 	public List<?> selectSome(Map<?, ?> p) {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 
 	@Override
 	public MemberDTO selectOne(Map<?, ?> p) {
 		SqlSession sqlSession = factory.openSession();
-		return (MemberDTO) sqlSession.selectOne(ns+".selectOne",p);
+		return (MemberDTO) sqlSession.selectOne(ns + ".retrieve", p);
 	}
 
 	@Override
@@ -45,21 +48,27 @@ public class MemberMapper implements MemberDAO{
 	}
 
 	@Override
-	public void update(Map<?, ?> p) {
-		// TODO Auto-generated method stub
-		
+	public void update(MemberDTO p) {
+		SqlSession sqlSession = factory.openSession();
+		sqlSession.update(ns+".update",p);
 	}
 
 	@Override
-	public void delete(Map<?, ?> p) {
-		// TODO Auto-generated method stub
-		
+	public void delete(MemberDTO p) {
+		SqlSession sqlSession = factory.openSession();
+		sqlSession.delete(ns + ".delete", p);
 	}
 
 	@Override
-	public boolean login(Map<?, ?> p) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean login(MemberDTO p) {
+		SqlSession sqlSession = factory.openSession();
+		boolean flag = false;
+		if (sqlSession.selectOne(ns + ".login", p) == null) {
+			flag = false;
+		} else {
+			flag = true;
+		}
+		return flag;
 	}
 
 }

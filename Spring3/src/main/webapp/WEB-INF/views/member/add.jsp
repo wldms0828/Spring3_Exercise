@@ -18,13 +18,13 @@
            <input type="radio" name="teamid" 
            		value="none" checked="checked" />없음
            <input type="radio" name="teamid" 
-           		value="yanolja" />야놀자
+           		value="걍놀자" />야놀자
            <input type="radio" name="teamid" 
-           		value="jieunzip" />지은집
+           		value="지은이,지은집" />지은집
            <input type="radio" name="teamid" 
-           		value="turtleking" />터틀킹
+           		value="거북왕" />터틀킹
            <input type="radio" name="teamid" 
-           		value="coddingstar" />코딩스타
+           		value="코딩짱" />코딩스타
         <br /><br />
          <label for="userid"><b>프로젝트역할</b></label>
         <select name="roll" id="roll">
@@ -46,6 +46,7 @@
         <input type="checkbox" name="subject" value="html" /> HTML
         <input type="checkbox" name="subject" value="spring" /> Spring
     </div>
+    <button id="add_submit" type="submit" >회원가입</button>
     </form>
     </div>
  

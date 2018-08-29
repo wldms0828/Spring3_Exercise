@@ -36,8 +36,7 @@ public class HomeController {
 		String path = prefix+":"+dir+"/"+page+".tiles";
 		logger.info("\n move page >>> {}",path);
 		return path;
-	}
-	
+	}	
 }
 
 

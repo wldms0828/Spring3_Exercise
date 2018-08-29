@@ -16,11 +16,60 @@ app = {
 			location.href = app.x()+'/move/auth/member/add';
 		});
 		$('#login__submit').click(()=>{
-			location.href = app.x()+'/member/login';
+			alert('login__submit click!!');
+			$('#login__form')
+			.attr({
+				action : app.x()+'/member/login',
+				method : "POST"
+			})
+			.submit();
+	
 		});
 		$('#logout__btn').click(()=>{
 			alert('logout');
 			location.href = app.x()+'/member/logout';
+		});
+		$('#add_submit').click(()=>{
+			alert('add_submit click!!');	
+			$('#add_form')
+			.attr({
+				action: app.x()+"/member/add",
+				method : "POST"
+			})
+			.submit();
+/*
+			var form = document.getElementById('add_form');
+			form.action = app.x()+"/member/add";
+			form.method = "POST";
+			form.submit();
+*/
+		});
+		$('#delete__btn').click(()=>{
+			alert('delete__btn click!!');
+			location.href = app.x()+'/move/delete/member/remove';
+			
+		});
+		$('#deleteFormBtn').click(()=>{
+			alert('deleteFormBtn!!');
+			$('#deleteForm')
+			.attr({
+				action : app.x()+"/member/remove",
+				mothod : "POST"
+			})
+			.submit();
+		});
+		$('#update__btn').click(()=>{
+			alert('modifyBtn click!!');
+			location.href = app.x()+'/move/update/member/modify';
+		});
+		$('#modifyBtn').click(()=>{
+			alert('update__btn click!!');
+			$('#updateForm')
+			.attr({
+				action : app.x()+"/member/modify",
+				method : "POST"
+			})
+			.submit();
 		});
 	},
 	setContentView : ()=>{
@@ -52,7 +101,17 @@ app.i = ()=>{
 	return app.session.path('img');
 };
 
+var loginUser = loginUser || {};
+loginUser={
+		init : x=>{
+			console.log('login step 1');
+			loginUser.onCreate();
+		},
 
+};
+loginUser.session={
+		
+};
 
 
 
