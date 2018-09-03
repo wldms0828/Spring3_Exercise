@@ -1,5 +1,6 @@
 "use strict";
 var app = app || {};
+var user = user || {};
 app = {
 	init : x=>{
 		console.log('step 1');
@@ -23,7 +24,10 @@ app = {
 				method : "POST"
 			})
 			.submit();
-	
+		});
+		$('#mypage__btn').click(()=>{
+			alert('mypage__btn click');
+			location.href=app.x()+'/member/retrieve/'+userid;
 		});
 		$('#logout__btn').click(()=>{
 			alert('logout');
@@ -101,22 +105,14 @@ app.i = ()=>{
 	return app.session.path('img');
 };
 
-var loginUser = loginUser || {};
-loginUser={
-		init : x=>{
-			console.log('login step 1');
-			loginUser.onCreate();
-		},
-
-};
-loginUser.session={
+user.session= x => {
+		$.each(x, function(k,v){
+			alert('key:'+k+',value:'+v);
+			sessionStorage.setItem(k, v);
+		});
+		alert(sessionStorage.getItem('userid'));
 		
 };
-
-
-
-
-
 
 
 

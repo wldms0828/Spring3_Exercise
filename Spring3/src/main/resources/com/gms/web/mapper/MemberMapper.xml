@@ -19,8 +19,8 @@
    	DELETE FROM MEMBER WHERE USERID LIKE #{userid} 
   	 	AND PASSWORD LIKE #{password}
    </delete> 
-	<select  id="login" resultType="com.gms.web.domain.MemberDTO">
-		SELECT USERID FROM MEMBER WHERE USERID LIKE #{userid} 
+	<select  id="login" resultType="java.lang.String">
+		SELECT COUNT(USERID) FROM MEMBER WHERE USERID LIKE #{userid} 
 			AND PASSWORD LIKE #{password}
 	</select>
 	 <select id="retrieve" resultType="com.gms.web.domain.MemberDTO">

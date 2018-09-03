@@ -48,7 +48,7 @@ public class MemberController {
 		memberService.remove(member);
 	}
 	@RequestMapping("/login")
-	public String login(@ModelAttribute("member") MemberDTO member, Model model, HttpSession session) {
+	public String login(@ModelAttribute("member") MemberDTO member, Model model, HttpSession session) { 
 		logger.info("\n --------- MemberController {} !!--------","login()");
 		Map<String, String> map = new HashMap<>();
 		if(memberService.login(member)) {

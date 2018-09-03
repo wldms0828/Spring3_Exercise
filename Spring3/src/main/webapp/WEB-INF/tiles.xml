@@ -29,6 +29,7 @@
 		<put-attribute name="nav" value="/WEB-INF/views/member/nav.jsp"/>
 		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"/>
 	</definition>
+	
 </tiles-definitions>
 
 

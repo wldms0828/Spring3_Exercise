@@ -45,6 +45,7 @@
           </a>
           <ul class="dropdown-menu" role="menu">
             <li><a id="logout__btn" >로그아웃</a></li>
+            <li><a id="mypage__btn" >마이페이지</a></li>
             <li><a id="delete__btn" >회원탈퇴</a></li>
             <li><a id="update__btn" >회원정보수정</a></li>
             
@@ -54,7 +55,3 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
-
-
-
